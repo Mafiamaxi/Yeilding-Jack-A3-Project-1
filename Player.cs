@@ -45,11 +45,33 @@ namespace Game10003
                 velocity.X = -1;
             }
             position += velocity * speed;
+
+            KeepInWindowBounds();
         }
 
-        public void KeepInWindowBounds()
+        void KeepInWindowBounds()
         {
+        //Stop player from going above top of screen
+          if (position.Y < 0 + radius)
+            {
+                position.Y = 0 + radius;
 
+            }
+          // Stops player from going to bottom of screen
+          if (position.Y >  800 - radius)
+            {
+                position.Y = 800 - radius;
+            }
+          //stopping player from going to left side of  the screen
+          if (position.X < 0 + radius)
+            {
+                position.X = 0 + radius;
+            }
+            //stopping player from going to right side of  the screen
+            if (position.X > 600 - radius)
+            {
+                position.X = 600 - radius;
+            }
         }
 
         public void DrawPlayer()
