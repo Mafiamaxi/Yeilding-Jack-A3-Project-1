@@ -7,11 +7,12 @@ namespace Game10003
     class Enemy
     {
         //Variables:
-        Vector2 position = new Vector2();
+        public Vector2 position = new Vector2();
         Vector2 velocity = new Vector2();
         color colour;
         int speed;
         public string nameToEnemy = "Destroyer";
+        public float radius;
 
         public int healthToEnemy = 10;
         public int defenseToEnemy = 70;
@@ -25,6 +26,7 @@ namespace Game10003
             defenseToEnemy = 100;
             ResetEnemy();
             colour = color.Blue;
+            radius = 30;
 
             velocity.X = -1;
             velocity.Y = 0;
@@ -41,7 +43,7 @@ namespace Game10003
         public void DrawEnemy()
         {
             Draw.FillColor = colour;
-            Draw.Circle(position.X, position.Y, 30);
+            Draw.Circle(position.X, position.Y, radius);
            
         }
 

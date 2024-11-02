@@ -5,9 +5,9 @@ namespace Game10003
 {
     class Player
     {
-        Vector2 position = new Vector2();
+        public Vector2 position = new Vector2();
         Vector2 velocity = new Vector2();
-        float radius;
+        public float radius;
         color colour;
         float speed;
         //Functions
