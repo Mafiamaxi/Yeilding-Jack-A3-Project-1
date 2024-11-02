@@ -10,6 +10,7 @@ namespace Game10003
         public float radius;
         color colour;
         float speed;
+        int health;
         //Functions
 
         public void Setup()
@@ -26,15 +27,16 @@ namespace Game10003
             //Getting user input (WASD)
             velocity.X = 0; 
             velocity.Y = 0;
-            if (Input.IsKeyboardKeyDown (KeyboardInput.W))
+            if (Input.IsKeyboardKeyDown(KeyboardInput.S))
             {
-                velocity.Y = 1; 
+                velocity.Y = +1;
             }
-            else if (Input.IsKeyboardKeyDown (KeyboardInput.S))
+
+            else if (Input.IsKeyboardKeyDown(KeyboardInput.W))
             {
                 velocity.Y = -1;
             }
-            else if (Input.IsKeyboardKeyDown (KeyboardInput.D))
+            else if (Input.IsKeyboardKeyDown(KeyboardInput.D))
             {
                 velocity.X = +1;
             }
@@ -55,6 +57,12 @@ namespace Game10003
             Draw.FillColor = colour;
             Draw.Circle(position, radius);
 
+
+        }
+
+        public void ReduceHealth()
+        {
+            health -= 1;
 
         }
 }

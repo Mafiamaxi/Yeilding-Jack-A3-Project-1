@@ -30,7 +30,7 @@ namespace Game10003
                 if (distance < playerRadius + enemyRadius)
                 {
                     enemies[i].ResetEnemy();
-
+                    player.ReduceHealth();
 
 
                 }
