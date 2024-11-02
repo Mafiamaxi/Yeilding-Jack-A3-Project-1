@@ -32,7 +32,7 @@ namespace Game10003
             velocity.Y = 0;
         }
 
-        private void ResetEnemy()
+        public void ResetEnemy()
         {
             position.Y = Random.Integer(100, 700);
             position.X = 605;

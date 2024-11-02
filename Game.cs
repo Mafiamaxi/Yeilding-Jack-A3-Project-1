@@ -18,6 +18,7 @@ namespace Game10003
         color color;
         Enemy[] ENEMY = new Enemy[7];
         Player player;
+        Collision collision;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -47,7 +48,10 @@ namespace Game10003
 
            player.Setup();
 
+            //Collision!
 
+            collision = new Collision(player, ENEMY);
+            
         }
 
         /// <summary>
@@ -67,8 +71,8 @@ namespace Game10003
             player.DrawPlayer();
             //Move Enemy
             //position += velocity * Time.DeltaTime; 
-          
 
+            collision.CheckForCollisions();
 
 
             //Keep Enemy inside screen

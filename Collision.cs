@@ -9,13 +9,13 @@ namespace Game10003
         Enemy[] enemies;
 
         //Constructor
-        Collision(Player ply, Enemy[] enem)
+        public Collision(Player ply, Enemy[] enem)
         {
             player = ply;
             enemies = enem;
         }
 
-        void CheckForCollisions()
+        public void CheckForCollisions()
         {
            //We are looping through all the enemies
             for (int i = 0; i < enemies.Length; i++)
@@ -27,8 +27,19 @@ namespace Game10003
                 float enemyRadius = enemies[i].radius;
 
 
+                if (distance < playerRadius + enemyRadius)
+                {
+                    enemies[i].ResetEnemy();
+
+
+
+                }
+
+
+
 
             }
+
 
 
         }
