@@ -19,39 +19,52 @@ namespace Game10003
         Enemy[] ENEMY = new Enemy[7];
         Player player;
         Collision collision;
+        GameUI gameUI;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
         public void Setup()
         {
-            Window.SetTitle("Caterpillar 1.0");
+           
+            Window.SetTitle("Circular Game");
             Window.SetSize(600, 800);
+
+            //Set up Player
+            player = new Player();
+
+            player.Setup();
+            gameUI = new GameUI(player);
 
 
             //Set up enemy
-            position = Window.Size / 3;
-            velocity = Random.Direction() * 50;
-            radius = 35;
-            color = Random.Color();
+          
 
             for (int i = 0; i < ENEMY.Length; i++)
             {
-                ENEMY[i] = new Enemy();
+                ENEMY[i] = new Enemy(gameUI);
                 ENEMY[i].Setup();
                 ENEMY[i].DrawEnemy();
 
 
             }
-            //Set up Player
-            player = new Player();
-
-           player.Setup();
+            
 
             //Collision!
 
             collision = new Collision(player, ENEMY);
+
+            //GameUI!
+
             
+
+            
+
+            
+
+
+
+
         }
 
         /// <summary>
@@ -67,17 +80,20 @@ namespace Game10003
                 ENEMY[i].MoveEnemy();
             }
 
+            gameUI.DisplayScore();
+            gameUI.DisplayHealth();
             player.MovePlayer();
             player.DrawPlayer();
+
             //Move Enemy
             //position += velocity * Time.DeltaTime; 
 
             collision.CheckForCollisions();
 
 
-            //Keep Enemy inside screen
+            //Keeping Enemies inside screen
             
-            bool isTouchingTop = position.X <= 0 + radius;
+            bool isTouchingTop = position.Y <= 0 + radius;
             bool isTouchingBottom = position.Y >= Window.Height - radius;
             bool isTouchingLeft = position.X <= 0 + radius;
             bool isTouchingRight = position.X >= Window.Width - radius;

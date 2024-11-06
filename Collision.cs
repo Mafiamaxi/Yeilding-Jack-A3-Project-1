@@ -17,10 +17,10 @@ namespace Game10003
 
         public void CheckForCollisions()
         {
-           //We are looping through all the enemies
+           //I am looping through all the enemies
             for (int i = 0; i < enemies.Length; i++)
             {
-                //Check distance between player and enemies
+                //Checks distance between player and enemies
 
                 float distance = Vector2.Distance(player.position, enemies[i].position);
                 float playerRadius = player.radius;
@@ -31,8 +31,6 @@ namespace Game10003
                 {
                     enemies[i].ResetEnemy();
                     player.ReduceHealth();
-
-
                 }
 
 

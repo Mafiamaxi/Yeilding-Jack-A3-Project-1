@@ -10,6 +10,7 @@ namespace Game10003
         public Vector2 position = new Vector2();
         Vector2 velocity = new Vector2();
         color colour;
+        GameUI gameui;
         int speed;
         public string nameToEnemy = "Destroyer";
         public float radius;
@@ -17,11 +18,17 @@ namespace Game10003
         public int healthToEnemy = 10;
         public int defenseToEnemy = 70;
 
+        //Constructor
+        public Enemy(GameUI gameuiRef)
+        {
+            gameui = gameuiRef;
+        }
+
         //Runs once when the application is started
         public void Setup()
         {
 
-             nameToEnemy = "Goomba";
+            nameToEnemy = "Goomba";
             healthToEnemy = 110;
             defenseToEnemy = 100;
             ResetEnemy();
@@ -36,7 +43,7 @@ namespace Game10003
         {
             position.Y = Random.Integer(100, 700);
             position.X = 605;
-            speed = Random.Integer(15, 20);
+            speed = Random.Integer(5, 15);
 
         }
         
@@ -53,6 +60,8 @@ namespace Game10003
             if (position.X < 0)
             {
                 ResetEnemy();
+                gameui.IncreaseScore();
+                
             }
         }
 

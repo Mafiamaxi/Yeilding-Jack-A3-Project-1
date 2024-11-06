@@ -10,16 +10,17 @@ namespace Game10003
         public float radius;
         color colour;
         float speed;
-        int health;
+        public int currentHealth;
         //Functions
 
         public void Setup()
         {
             colour = color.Red;
             position = new Vector2(400, 600);
-            radius = 100;
+            radius = 40;
             velocity = new Vector2(0);
             speed = 10;
+            currentHealth = 3;
         }
 
         public void MovePlayer()
@@ -51,13 +52,13 @@ namespace Game10003
 
         void KeepInWindowBounds()
         {
-        //Stop player from going above top of screen
+        //Stopping player from going above top of screen
           if (position.Y < 0 + radius)
             {
                 position.Y = 0 + radius;
 
             }
-          // Stops player from going to bottom of screen
+          // Stopping player from going to bottom of screen
           if (position.Y >  800 - radius)
             {
                 position.Y = 800 - radius;
@@ -84,7 +85,7 @@ namespace Game10003
 
         public void ReduceHealth()
         {
-            health -= 1;
+            currentHealth -= 1;
 
         }
 }
