@@ -39,5 +39,10 @@ namespace Game10003
         {
             score += 1;
         }
+
+         public void Setup()
+        {
+            score = 0; 
+        }
     }
 }

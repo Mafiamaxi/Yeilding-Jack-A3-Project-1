@@ -16,11 +16,11 @@ namespace Game10003
         public void Setup()
         {
             colour = color.Red;
-            position = new Vector2(400, 600);
+            position = new Vector2(50, 600);
             radius = 40;
             velocity = new Vector2(0);
             speed = 10;
-            currentHealth = 3;
+            currentHealth = 10;
         }
 
         public void MovePlayer()

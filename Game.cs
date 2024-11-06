@@ -20,6 +20,7 @@ namespace Game10003
         Player player;
         Collision collision;
         GameUI gameUI;
+        
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -57,7 +58,7 @@ namespace Game10003
             //GameUI!
 
             
-
+            
             
 
             
@@ -92,31 +93,58 @@ namespace Game10003
 
 
             //Keeping Enemies inside screen
-            
-            bool isTouchingTop = position.Y <= 0 + radius;
-            bool isTouchingBottom = position.Y >= Window.Height - radius;
-            bool isTouchingLeft = position.X <= 0 + radius;
-            bool isTouchingRight = position.X >= Window.Width - radius;
+
+            // bool isTouchingTop = position.Y <= 0 + radius;
+            // bool isTouchingBottom = position.Y >= Window.Height - radius;
+            //bool isTouchingLeft = position.X <= 0 + radius;
+            //bool isTouchingRight = position.X >= Window.Width - radius;
 
 
-            if (isTouchingTop || isTouchingBottom)
+            //if (isTouchingTop || isTouchingBottom)
+            //{
+            //velocity.Y = -velocity.Y;
+            //}
+
+            //if (isTouchingLeft || isTouchingRight)
+            //{
+            //velocity.X = -velocity.X;
+            //}
+
+            //if (isTouchingTop || isTouchingBottom || isTouchingLeft || isTouchingRight)
+            //{
+            //color = Random.Color();
+
+
+            //}
+
+            ResetGame();
+
+
+        }
+
+        //Resetting the game!
+        void ResetGame()
+        {
+            if (player.currentHealth <= 0)
             {
-                velocity.Y = -velocity.Y;
-            }
+                player.Setup();
+                gameUI.Setup();
 
-            if (isTouchingLeft || isTouchingRight)
-            {
-                velocity.X = -velocity.X;
-            }
+                for (int i = 0; i < ENEMY.Length; i++)
+                {
+                    ENEMY[i].Setup();
 
-            if (isTouchingTop || isTouchingBottom || isTouchingLeft || isTouchingRight)
-            {
-                color = Random.Color();
 
+                    
+                       
+
+                }
 
             }
 
         }
+
+       
 
     }
 }
