@@ -8,8 +8,6 @@ namespace Game10003
         int score;
         Player player;
         
-        
-        
         // functions
 
         //GameUI Constructor
@@ -21,13 +19,8 @@ namespace Game10003
 
         public void DisplayHealth()
         {
-            //health 3
-            //health 2
-            
-           //Displaying Text to Screen
-            Text.Draw("Health; " + player.currentHealth,  5, 5);
-
-
+            //Displaying Text to Screen
+            Text.Draw("Health; " + player.currentHealth, 5, 5);
         }
 
         public void DisplayScore()
@@ -40,7 +33,7 @@ namespace Game10003
             score += 1;
         }
 
-         public void Setup()
+        public void Setup()
         {
             score = 0; 
         }

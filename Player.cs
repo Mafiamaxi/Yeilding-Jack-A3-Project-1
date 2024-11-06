@@ -11,6 +11,7 @@ namespace Game10003
         color colour;
         float speed;
         public int currentHealth;
+        
         //Functions
 
         public void Setup()
@@ -28,11 +29,11 @@ namespace Game10003
             //Getting user input (WASD)
             velocity.X = 0; 
             velocity.Y = 0;
+
             if (Input.IsKeyboardKeyDown(KeyboardInput.S))
             {
                 velocity.Y = +1;
             }
-
             else if (Input.IsKeyboardKeyDown(KeyboardInput.W))
             {
                 velocity.Y = -1;
@@ -45,6 +46,7 @@ namespace Game10003
             {
                 velocity.X = -1;
             }
+
             position += velocity * speed;
 
             KeepInWindowBounds();
@@ -52,19 +54,18 @@ namespace Game10003
 
         void KeepInWindowBounds()
         {
-        //Stopping player from going above top of screen
-          if (position.Y < 0 + radius)
+            //Stopping player from going above top of screen
+            if (position.Y < 0 + radius)
             {
                 position.Y = 0 + radius;
-
             }
-          // Stopping player from going to bottom of screen
-          if (position.Y >  800 - radius)
+            //Stopping player from going to bottom of screen
+            if (position.Y >  800 - radius)
             {
                 position.Y = 800 - radius;
             }
-          //stopping player from going to left side of  the screen
-          if (position.X < 0 + radius)
+            //stopping player from going to left side of  the screen
+            if (position.X < 0 + radius)
             {
                 position.X = 0 + radius;
             }
@@ -79,16 +80,13 @@ namespace Game10003
         {
             Draw.FillColor = colour;
             Draw.Circle(position, radius);
-
-
         }
 
         public void ReduceHealth()
         {
             currentHealth -= 1;
-
         }
-}
+    }
 
 }
 

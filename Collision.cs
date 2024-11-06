@@ -3,7 +3,6 @@
 namespace Game10003
 {
     class Collision
-    
     {
         Player player;
         Enemy[] enemies;
@@ -26,22 +25,13 @@ namespace Game10003
                 float playerRadius = player.radius;
                 float enemyRadius = enemies[i].radius;
 
-
                 if (distance < playerRadius + enemyRadius)
                 {
                     enemies[i].ResetEnemy();
                     player.ReduceHealth();
                 }
-
-
-
-
             }
-
-
 
         }
     }
-
- 
 }

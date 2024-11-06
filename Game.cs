@@ -21,51 +21,31 @@ namespace Game10003
         Collision collision;
         GameUI gameUI;
         
-
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
         public void Setup()
         {
-           
             Window.SetTitle("Circular Game");
             Window.SetSize(600, 800);
 
             //Set up Player
             player = new Player();
-
             player.Setup();
+            
+            //Setup GameUI!
             gameUI = new GameUI(player);
 
-
             //Set up enemy
-          
-
             for (int i = 0; i < ENEMY.Length; i++)
             {
                 ENEMY[i] = new Enemy(gameUI);
                 ENEMY[i].Setup();
                 ENEMY[i].DrawEnemy();
-
-
             }
-            
 
             //Collision!
-
             collision = new Collision(player, ENEMY);
-
-            //GameUI!
-
-            
-            
-            
-
-            
-
-
-
-
         }
 
         /// <summary>
@@ -91,14 +71,12 @@ namespace Game10003
 
             collision.CheckForCollisions();
 
-
             //Keeping Enemies inside screen
 
             // bool isTouchingTop = position.Y <= 0 + radius;
             // bool isTouchingBottom = position.Y >= Window.Height - radius;
             //bool isTouchingLeft = position.X <= 0 + radius;
             //bool isTouchingRight = position.X >= Window.Width - radius;
-
 
             //if (isTouchingTop || isTouchingBottom)
             //{
@@ -119,12 +97,12 @@ namespace Game10003
 
             ResetGame();
 
-
         }
 
         //Resetting the game!
         void ResetGame()
         {
+            //When the player health is 0, it will reset the game
             if (player.currentHealth <= 0)
             {
                 player.Setup();
@@ -133,18 +111,8 @@ namespace Game10003
                 for (int i = 0; i < ENEMY.Length; i++)
                 {
                     ENEMY[i].Setup();
-
-
-                    
-                       
-
                 }
-
             }
-
         }
-
-       
-
     }
 }

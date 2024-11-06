@@ -12,11 +12,7 @@ namespace Game10003
         color colour;
         GameUI gameui;
         int speed;
-        public string nameToEnemy = "Destroyer";
         public float radius;
-
-        public int healthToEnemy = 10;
-        public int defenseToEnemy = 70;
 
         //Constructor
         public Enemy(GameUI gameuiRef)
@@ -27,10 +23,6 @@ namespace Game10003
         //Runs once when the application is started
         public void Setup()
         {
-
-            nameToEnemy = "Goomba";
-            healthToEnemy = 110;
-            defenseToEnemy = 100;
             ResetEnemy();
             colour = color.Blue;
             radius = 30;
@@ -44,26 +36,23 @@ namespace Game10003
             position.Y = Random.Integer(100, 700);
             position.X = 605;
             speed = Random.Integer(5, 15);
-
         }
         
         public void DrawEnemy()
         {
             Draw.FillColor = colour;
             Draw.Circle(position.X, position.Y, radius);
-           
         }
 
         public void MoveEnemy()
         {
             position += velocity * speed;
+            
             if (position.X < 0)
             {
                 ResetEnemy();
                 gameui.IncreaseScore();
-                
             }
         }
-
     }
 }
